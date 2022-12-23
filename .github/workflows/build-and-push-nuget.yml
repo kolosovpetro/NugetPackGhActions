@@ -76,7 +76,8 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore Nuget Packages
-        run: dotnet restore
+        run: |
+          dotnet restore
 
       - name: Build .NET Solution
         run: |
@@ -88,7 +89,6 @@ jobs:
 
       - name: Dotnet Pack
         run: |
-          echo "VERSION IS: $PACKAGE_VERSION"
           dotnet pack "${{ env.ProjectPath }}" --output "${{ env.ArtifactFolder }}" --configuration "$Configuration" -p:Version="$PACKAGE_VERSION"
         env:
           PACKAGE_VERSION: ${{ steps.gitversion.outputs.nuGetVersionV2 }}
