@@ -125,5 +125,6 @@ jobs:
           dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
 
       - name: publish
+        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
         run: |
-          dotnet nuget push ./nupkg/**.nupkg --source github --api-key $ApiKey
+          dotnet nuget push "*.nupkg" --source github --api-key $ApiKey
