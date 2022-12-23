@@ -9,6 +9,12 @@ on:
     branches: [ develop ]
   workflow_dispatch:
 
+env:
+  Configuration: Release
+  AppName: MyNugetPackage
+  TestProjectPath: './MyNugetPackage.Tests'
+  TestProject: 'MyNugetPackage.Tests.csproj'
+
 jobs:
   build-and-test-dotnet:
     name: Run Build and Test .NET
@@ -27,13 +33,13 @@ jobs:
 
       - name: Build .NET Solution
         run: |
-          dotnet build --no-restore /p:ContinuousIntegrationBuild=true --configuration Release
-          
+          dotnet build --no-restore /p:ContinuousIntegrationBuild=true --configuration $Configuration
+
       - name: Run Unit Tests
-        working-directory: ./DotnetTemplate.Tests
+        working-directory: ${{ env.TestProjectPath }}
         run: |
-          dotnet test DotnetTemplate.Tests.csproj -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=TestResults -p:SkipAutoProps=true -p:Threshold=80
-          
+          dotnet test ${{ env.TestProject }} -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=TestResults -p:SkipAutoProps=true -p:Threshold=80
+
 #      - name: Run .NET Publish
 #        run: |
 #          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained
