@@ -1,4 +1,4 @@
-﻿namespace DotnetTemplate;
+﻿namespace MyNugetPackage;
 
 public static class MySampleService
 {

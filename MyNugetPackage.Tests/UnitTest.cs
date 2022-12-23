@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace DotnetTemplate.Tests;
+namespace MyNugetPackage.Tests;
 
 public class UnitTest
 {
@@ -11,12 +11,12 @@ public class UnitTest
     [Fact]
     public void TestMethodOne()
     {
-        _ = MySampleService.MethodOne().Should().Be(MethodOneOutput);
+        MySampleService.MethodOne().Should().Be(MethodOneOutput);
     }
 
     [Fact]
     public void TestMethodTwo()
     {
-        _ = MySampleService.MethodTwo().Should().Be(MethodTwoOutput);
+        MySampleService.MethodTwo().Should().Be(MethodTwoOutput);
     }
 }

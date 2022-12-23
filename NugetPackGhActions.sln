@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{0ADEAED5
 		nuget.config = nuget.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTemplate", "DotnetTemplate\DotnetTemplate.csproj", "{E1D690B6-A216-4055-B415-42DA130F1FAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNugetPackage", "MyNugetPackage\MyNugetPackage.csproj", "{E1D690B6-A216-4055-B415-42DA130F1FAB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6E8508F0-6477-4C41-B8A0-BC3F27B6ABF9}"
 EndProject
@@ -28,12 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pi
 		azure-pipelines\coverage.runsettings = azure-pipelines\coverage.runsettings
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8E7D8-A94D-4A9D-AE6A-BE409F9EE5BE}"
-	ProjectSection(SolutionItems) = preProject
-		scripts\run-sonarcloud-dotnet.sh = scripts\run-sonarcloud-dotnet.sh
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTemplate.Tests", "DotnetTemplate.Tests\DotnetTemplate.Tests.csproj", "{2481B08A-370C-4169-AC2A-F34A8447392F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNugetPackage.Tests", "MyNugetPackage.Tests\MyNugetPackage.Tests.csproj", "{2481B08A-370C-4169-AC2A-F34A8447392F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
