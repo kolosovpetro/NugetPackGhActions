@@ -75,6 +75,10 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
+          
+      - name: Add Nuget source
+        run: |
+          dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
 
       - name: Restore Nuget Packages
         run: |
