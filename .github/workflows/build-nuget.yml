@@ -1,12 +1,11 @@
-﻿name: Run Build and Test
+﻿name: Build Nuget
 
 on:
   push:
     branches:
       - master
       - develop
-  pull_request:
-    branches: [ develop ]
+
   workflow_dispatch:
 
 env:
@@ -100,31 +99,3 @@ jobs:
         with:
           name: 'nupkg'
           path: '${{ env.ArtifactFolder }}/*.nupkg'
-
-  publish:
-    needs: package
-    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: 'nupkg'
-          
-      - name: Print contents of downloaded artifact
-        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
-        run: ls -a
-
-      - name: Setup .NET 6.0 SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.x'
-
-      - name: add package source
-        run: |
-          dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
-
-      - name: publish
-        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
-        run: |
-          dotnet nuget push "*.nupkg" --source github --api-key $ApiKey

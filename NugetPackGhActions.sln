@@ -15,7 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6E85
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4F59DF04-64F5-45F1-9767-F88CA7C1B8E5}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\run-build-and-test.yml = .github\workflows\run-build-and-test.yml
+		.github\workflows\build-and-push-nuget.yml = .github\workflows\build-and-push-nuget.yml
+		.github\workflows\build-nuget.yml = .github\workflows\build-nuget.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{BA6EB862-5882-4962-A860-AB65D40C1776}"
