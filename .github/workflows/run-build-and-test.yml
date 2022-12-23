@@ -14,6 +14,9 @@ env:
   ProjectPath: './MyNugetPackage/MyNugetPackage.csproj'
   TestProjectPath: './MyNugetPackage.Tests/MyNugetPackage.Tests.csproj'
   ArtifactFolder: './artifacts'
+  NugetFeed: 'https://nuget.pkg.github.com/kolosovpetro/index.json'
+  Username: 'kolosovpetro'
+  ApiKey: ${{ secrets.NUGET_API_KEY }}
 
 jobs:
   build-and-test-dotnet:
@@ -98,12 +101,25 @@ jobs:
           name: 'nupkg'
           path: '${{ env.ArtifactFolder }}/*.nupkg'
 
-#      - name: Run .NET Publish
-#        run: |
-#          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained
+  publish:
+    needs: build
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: 'nupkg'
 
-#      - name: Drop Artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: project-linux-build
-#          path: project-linux-build/src
+      - name: Setup .NET 6.0 SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: add package source
+        run: |
+          dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
+
+      - name: publish
+        run: |
+          dotnet nuget push ./nupkg/**.nupkg --source github --api-key $ApiKey
