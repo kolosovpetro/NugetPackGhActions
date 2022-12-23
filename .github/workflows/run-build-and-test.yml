@@ -112,8 +112,8 @@ jobs:
           name: 'nupkg'
           
       - name: Print contents of downloaded artifact
-        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions/nupkg
-        run: ls -lah
+        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
+        run: ls -a
 
       - name: Setup .NET 6.0 SDK
         uses: actions/setup-dotnet@v3
