@@ -93,7 +93,7 @@ jobs:
           PACKAGE_VERSION: ${{ steps.gitversion.outputs.nuGetVersionV2 }}
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: 'nupkg'
           path: '${{ env.ArtifactFolder }}/*.nupkg'
