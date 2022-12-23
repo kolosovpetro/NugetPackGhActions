@@ -14,4 +14,12 @@
         </PackageReference>
     </ItemGroup>
 
+    <PropertyGroup>
+        <PackageId>MyNugetPackage</PackageId>
+        <Authors>Petro Kolosov</Authors>
+        <Company>Github</Company>
+        <PackageDescription>Just my dummy package</PackageDescription>
+        <RepositoryUrl>https://github.com/kolosovpetro/NugetPackGhActions</RepositoryUrl>
+    </PropertyGroup>
+
 </Project>

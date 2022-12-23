@@ -31,7 +31,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DotnetTemplate\DotnetTemplate.csproj"/>
+        <ProjectReference Include="..\MyNugetPackage\MyNugetPackage.csproj"/>
     </ItemGroup>
 
 </Project>
