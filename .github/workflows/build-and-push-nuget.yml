@@ -108,10 +108,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: 'nupkg'
-
-      - name: Print contents of downloaded artifact
-        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
-        run: ls -a
+          path: '${{ env.ArtifactFolder }}'
 
       - name: Setup .NET 6.0 SDK
         uses: actions/setup-dotnet@v3
@@ -123,6 +120,6 @@ jobs:
           dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
 
       - name: publish
-        working-directory: /home/runner/work/NugetPackGhActions/NugetPackGhActions
+        working-directory: '${{ env.ArtifactFolder }}'
         run: |
           dotnet nuget push "*.nupkg" --source github --api-key $ApiKey
