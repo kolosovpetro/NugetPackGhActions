@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{0ADEAED5
 		README.md = README.md
 		.editorconfig = .editorconfig
 		nuget.config = nuget.config
+		GitVersion.yml = GitVersion.yml
+		nuget.ci.config = nuget.ci.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNugetPackage", "MyNugetPackage\MyNugetPackage.csproj", "{E1D690B6-A216-4055-B415-42DA130F1FAB}"
@@ -29,6 +31,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNugetPackage.Tests", "MyNugetPackage.Tests\MyNugetPackage.Tests.csproj", "{2481B08A-370C-4169-AC2A-F34A8447392F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageConsumer", "PackageConsumer\PackageConsumer.csproj", "{EBEC7E11-8584-48C4-B0F1-50139F837A38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{C4914196-2699-4752-B430-0212691BDBF4}"
+	ProjectSection(SolutionItems) = preProject
+		img\01_nuget_pat_permissions.PNG = img\01_nuget_pat_permissions.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +52,10 @@ Global
 		{2481B08A-370C-4169-AC2A-F34A8447392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2481B08A-370C-4169-AC2A-F34A8447392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2481B08A-370C-4169-AC2A-F34A8447392F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBEC7E11-8584-48C4-B0F1-50139F837A38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEC7E11-8584-48C4-B0F1-50139F837A38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEC7E11-8584-48C4-B0F1-50139F837A38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEC7E11-8584-48C4-B0F1-50139F837A38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4F59DF04-64F5-45F1-9767-F88CA7C1B8E5} = {6E8508F0-6477-4C41-B8A0-BC3F27B6ABF9}

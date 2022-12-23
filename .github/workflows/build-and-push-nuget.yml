@@ -74,6 +74,16 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
+          
+      - name: Adjust Nuget credentials
+        run: |
+          rm -f ./nuget.config
+          mv ./nuget.ci.config ./nuget.config
+          cat ./nuget.config
+
+      - name: Add Nuget source
+        run: |
+          dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
 
       - name: Restore Nuget Packages
         run: |
@@ -115,11 +125,11 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      - name: add package source
+      - name: Add Nuget source
         run: |
           dotnet nuget add source $NugetFeed -n github -u $Username -p $ApiKey --store-password-in-clear-text
 
-      - name: publish
+      - name: Publish Nuget package
         working-directory: '${{ env.ArtifactFolder }}'
         run: |
           dotnet nuget push "*.nupkg" --source github --api-key $ApiKey
