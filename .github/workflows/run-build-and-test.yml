@@ -19,7 +19,7 @@ env:
   ApiKey: ${{ secrets.NUGET_API_KEY }}
 
 jobs:
-  build-and-test-dotnet:
+  package:
     name: Run Build and Test .NET
     runs-on: ubuntu-latest
     steps:
@@ -102,7 +102,7 @@ jobs:
           path: '${{ env.ArtifactFolder }}/*.nupkg'
 
   publish:
-    needs: build
+    needs: package
     if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
