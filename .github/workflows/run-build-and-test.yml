@@ -86,10 +86,11 @@ jobs:
 
       - name: Dotnet Pack
         run: |
+          echo "VERSION IS: $PACKAGE_VERSION"
           dotnet pack "${{ env.ProjectPath }}" --output "${{ env.ArtifactFolder }}" --configuration "$Configuration" -p:Version="$PACKAGE_VERSION"
         env:
           PACKAGE_VERSION: ${{ steps.gitversion.outputs.nuGetVersionV2 }}
-      
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
